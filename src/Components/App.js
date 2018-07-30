@@ -1,8 +1,11 @@
 import React, { Component } from 'react';
 
 import '../Styles/App.css';
+
 import { Drumpad } from './Drumpad';
 import { Display } from './Display';
+import { ToggleButton } from './ToggleButton';
+import { VolumeSlider } from './VolumeSlider';
 
 class App extends Component {
   constructor(props) {
@@ -30,16 +33,21 @@ class App extends Component {
     return (
       <div className="App">
         <div id="drum-machine">
+          <div className="drumpads-wrapper">
+            <Drumpad id="Q" onClick={this.setDisplayText}/>
+            <Drumpad id="W" onClick={this.setDisplayText} />
+            <Drumpad id="E" onClick={this.setDisplayText} />
+            <Drumpad id="A" onClick={this.setDisplayText} />
+            <Drumpad id="S" onClick={this.setDisplayText} />
+            <Drumpad id="D" onClick={this.setDisplayText}/>
+            <Drumpad id="Z" onClick={this.setDisplayText}/>
+            <Drumpad id="X" onClick={this.setDisplayText}/>
+            <Drumpad id="C" onClick={this.setDisplayText}/>
+          </div>
           <Display id="display" displayText={this.getDisplayText()}/>
-          <Drumpad id="Q" onClick={this.setDisplayText}/>
-          <Drumpad id="W" />
-          <Drumpad id="E" />
-          <Drumpad id="A" />
-          <Drumpad id="S" />
-          <Drumpad id="D"/>
-          <Drumpad id="Z"/>
-          <Drumpad id="X"/>
-          <Drumpad id="C"/>
+          <ToggleButton title="Power" />
+          <ToggleButton title="Bank" />
+          <VolumeSlider />
         </div>
       </div>
     );
