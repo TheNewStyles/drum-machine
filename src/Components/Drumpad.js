@@ -5,7 +5,7 @@ export class Drumpad extends Component {
     return (
       <div id={this.props.id} onClick={this.props.onClick} className="drumpad">
         {this.props.id}
-        <audio src={this.props.src} className="clip"></audio>
+        <audio src={this.props.source} className="clip"></audio>
       </div>
     )
   }

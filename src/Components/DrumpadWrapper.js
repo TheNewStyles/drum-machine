@@ -8,7 +8,7 @@ export class DrumpadWrapper extends Component {
   render() {
     return (
       <div className="drumpads-wrapper">
-        <Drumpad id="Q" onClick={this.props.handleClick}/>
+        <Drumpad id="Q" source='bass-drum-1.wav' onClick={this.props.handleClick}/>
         <Drumpad id="W" onClick={this.props.handleClick}/>
         <Drumpad id="E" onClick={this.props.handleClick}/>
         <Drumpad id="A" onClick={this.props.handleClick}/>

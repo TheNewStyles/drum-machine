@@ -27,12 +27,11 @@ class App extends Component {
     this.setState({
       displayText: e.target.id
     })
-
-    //do sound
+    this.playSound(e);
   }
 
-  playSound() {
-    
+  playSound(e) {
+    e.target.firstElementChild.play();
   }
 
   render() {
