@@ -12,10 +12,11 @@ class App extends Component {
     super(props);
 
     this.state = {
-      displayText: ""
+      displayText: "",
+      on: false
     };
 
-    this.setDisplayText = this.setDisplayText.bind(this);
+    this.handleDrumClick = this.handleDrumClick.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
   }
   componentDidMount(){	   
@@ -27,14 +28,20 @@ class App extends Component {
   }
 
   handleKeyPress(e) {
-    this.playSound(e);
+    const keyEvents = ["q","w","e","a","s","d","z","x","c"];
+    if (e instanceof KeyboardEvent && keyEvents.indexOf(e.key) > -1) {
+      this.setState({
+        displayText: e.key.toUpperCase()
+      })
+      this.playSound(e);
+    }    
   }
 
   getDisplayText() {
     return this.state.displayText;
   }
 
-  setDisplayText(e) {
+  handleDrumClick(e) {
     e.preventDefault();
     this.setState({
       displayText: e.target.id
@@ -43,15 +50,19 @@ class App extends Component {
   }
 
   playSound(e) {
-    //TODO based on key play specific sound
-    e.target.firstElementChild.play();
+    if (e instanceof KeyboardEvent) {
+      const audioElement = document.getElementById(e.key.toUpperCase()).firstElementChild;
+      audioElement.play();      
+    } else {
+      e.target.firstElementChild.play();
+    }    
   }
 
   render() {
     return (
       <div className="App">
         <div id="drum-machine">
-          <DrumpadWrapper handleClick={this.setDisplayText} />          
+          <DrumpadWrapper handleClick={this.handleDrumClick} />          
           <div id="controls">
             <Display id="display" displayText={this.getDisplayText()} />
             <ToggleButton title="Power" />

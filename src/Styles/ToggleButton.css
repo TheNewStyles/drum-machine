@@ -1,3 +1,9 @@
+#slider-flex {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  padding: 15px;
+}
 
 /* Hide default HTML checkbox */
 .switch input {display:none;}

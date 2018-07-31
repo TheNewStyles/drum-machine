@@ -1,6 +1,6 @@
 .drumpad {
   min-width: 33.333%;  
-  height: 10vh;
+  height: 20vh;
   background-color: aqua;
 
   display: flex;

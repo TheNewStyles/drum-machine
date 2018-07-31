@@ -5,7 +5,7 @@ import '../Styles/ToggleButton.css';
 export class ToggleButton extends Component {
   render() {
     return (
-      <div>
+      <div id="slider-flex">
         <label htmlFor="slider">{this.props.title}</label>
         <div className="slider-container">
           <label className="switch">
