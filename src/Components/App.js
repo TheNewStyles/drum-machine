@@ -18,10 +18,12 @@ class App extends Component {
 
     this.handleDrumClick = this.handleDrumClick.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
+    this.handlePowerButtonClick = this.handlePowerButtonClick.bind(this);
   }
-  componentDidMount(){	   
+
+  componentDidMount() {	   
     window.addEventListener("keyup", this.handleKeyPress);	 
- } 	  
+  } 	  
 
  componentWillUnmount() {	   
     window.removeEventListener("keyup", this.handleKeyPress);
@@ -29,7 +31,7 @@ class App extends Component {
 
   handleKeyPress(e) {
     const keyEvents = ["q","w","e","a","s","d","z","x","c"];
-    if (e instanceof KeyboardEvent && keyEvents.indexOf(e.key) > -1) {
+    if (e instanceof KeyboardEvent && keyEvents.indexOf(e.key) > -1 && this.state.on) {
       this.setState({
         displayText: e.key.toUpperCase()
       })
@@ -43,10 +45,19 @@ class App extends Component {
 
   handleDrumClick(e) {
     e.preventDefault();
+    if (this.state.on) {
+      this.setState({
+        displayText: e.target.id
+      })
+      this.playSound(e);
+    }
+  }
+
+  handlePowerButtonClick() {
     this.setState({
-      displayText: e.target.id
-    })
-    this.playSound(e);
+      on: this.state.on === false ? true : false,
+      displayText: ""
+    });
   }
 
   playSound(e) {
@@ -65,7 +76,7 @@ class App extends Component {
           <DrumpadWrapper handleClick={this.handleDrumClick} />          
           <div id="controls">
             <Display id="display" displayText={this.getDisplayText()} />
-            <ToggleButton title="Power" />
+            <ToggleButton title="Power" handleClick={this.handlePowerButtonClick} />
             <ToggleButton title="Bank" />
             <VolumeSlider />
           </div>          
