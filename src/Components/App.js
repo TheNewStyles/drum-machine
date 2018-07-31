@@ -39,7 +39,7 @@ class App extends Component {
       <div className="App">
         <div id="drum-machine">
           <DrumpadWrapper handleClick={this.setDisplayText} />
-          <Display id="display" displayText={this.getDisplayText()}/>
+          <Display id="display" displayText={this.getDisplayText()} />
           <ToggleButton title="Power" />
           <ToggleButton title="Bank" />
           <VolumeSlider />
