@@ -38,11 +38,13 @@ class App extends Component {
     return (
       <div className="App">
         <div id="drum-machine">
-          <DrumpadWrapper handleClick={this.setDisplayText} />
-          <Display id="display" displayText={this.getDisplayText()} />
-          <ToggleButton title="Power" />
-          <ToggleButton title="Bank" />
-          <VolumeSlider />
+          <DrumpadWrapper handleClick={this.setDisplayText} />          
+          <div id="controls">
+            <Display id="display" displayText={this.getDisplayText()} />
+            <ToggleButton title="Power" />
+            <ToggleButton title="Bank" />
+            <VolumeSlider />
+          </div>          
         </div>
       </div>
     );
