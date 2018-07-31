@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import '../Styles/VolumeSlider.css';
+
 export class VolumeSlider extends Component {
   constructor(props) {
     super(props);
@@ -24,8 +26,8 @@ export class VolumeSlider extends Component {
 
   render() {
     return (
-      <div>
-        <label htmlFor="volume" > {this.state.volume} </label>
+      <div id="volume-container">        
+        <label htmlFor="volume" >Volume: {this.state.volume} </label>
         <input id="volume" type="range" min="0" max="100" step="1" defaultValue="100" onChange={this.handleChange}/>
       </div>
     )

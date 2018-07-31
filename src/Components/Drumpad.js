@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import '../Styles/Drumpad.css';
+
 export class Drumpad extends Component {
   render() {
     return (

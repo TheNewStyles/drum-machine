@@ -16,6 +16,18 @@ class App extends Component {
     };
 
     this.setDisplayText = this.setDisplayText.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
+  }
+  componentDidMount(){	   
+    window.addEventListener("keyup", this.handleKeyPress);	 
+ } 	  
+
+ componentWillUnmount() {	   
+    window.removeEventListener("keyup", this.handleKeyPress);
+  }
+
+  handleKeyPress(e) {
+    this.playSound(e);
   }
 
   getDisplayText() {
@@ -31,6 +43,7 @@ class App extends Component {
   }
 
   playSound(e) {
+    //TODO based on key play specific sound
     e.target.firstElementChild.play();
   }
 
