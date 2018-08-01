@@ -1,11 +1,11 @@
 #display {
   min-height: 25vh;
   min-width: 450px;
-  background-color: blue;
+  background-color: var(--purple-color);
 
   font-size: 2em;
   font-weight: bolder;
-  color: white;
+  color: var(--off-white-color);
 
   display: flex;
   align-items: center;

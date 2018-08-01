@@ -17,10 +17,6 @@ import '../Styles/DrumpadWrapper.css';
 export class DrumpadWrapper extends Component {
   constructor(props) {
     super(props);
-    // state = {
-    //   //some state passed from 
-    // }
-
     this.qSound = bassDrum1;
     this.wSound = bassDrum2;
     this.eSound = bassDrum3;
@@ -34,15 +30,15 @@ export class DrumpadWrapper extends Component {
   render() {
     return (
       <div className="drumpads-wrapper">
-        <Drumpad id="Q" source={this.qSound} onClick={this.props.handleClick}/>
-        <Drumpad id="W" source={bassDrum2} onClick={this.props.handleClick}/>
-        <Drumpad id="E" source={bassDrum3} onClick={this.props.handleClick}/>
-        <Drumpad id="A" source={bassDrum4} onClick={this.props.handleClick}/>
-        <Drumpad id="S" source={synthDrum1} onClick={this.props.handleClick}/>
-        <Drumpad id="D" source={buzzer} onClick={this.props.handleClick}/>
-        <Drumpad id="Z" source={symbol} onClick={this.props.handleClick}/>
-        <Drumpad id="X" source={soundEffect} onClick={this.props.handleClick}/>
-        <Drumpad id="C" source={zoomOut} onClick={this.props.handleClick}/>
+        <Drumpad id="Q" source={this.qSound} color1="var(--off-white-color)" color2="var(--purple-color)" onClick={this.props.handleClick}/>
+        <Drumpad id="W" source={bassDrum2} color1="var(--light-blue-color)" color2="var(--purple-color)" onClick={this.props.handleClick}/>
+        <Drumpad id="E" source={bassDrum3} color1="var(--off-white-color)" color2="var(--grey-color)" onClick={this.props.handleClick}/>
+        <Drumpad id="A" source={bassDrum4} color1="var(--grey-color)" color2="var(--off-white-color)" onClick={this.props.handleClick}/>
+        <Drumpad id="S" source={synthDrum1} color1="var(--off-white-color)" color2="var(--light-blue-color)" onClick={this.props.handleClick}/>
+        <Drumpad id="D" source={buzzer} color1="var(--black-color)" color2="var(--grey-color)" onClick={this.props.handleClick}/>
+        <Drumpad id="Z" source={symbol} color1="var(--off-white-color)" color2="var(--purple-color)" onClick={this.props.handleClick}/>
+        <Drumpad id="X" source={soundEffect} color1="var(--off-white-color)" color2="var(--purple-color)" onClick={this.props.handleClick}/>
+        <Drumpad id="C" source={zoomOut} color1="var(--off-white-color)" color2="var(--purple-color)" onClick={this.props.handleClick}/>
       </div>
     )
   }

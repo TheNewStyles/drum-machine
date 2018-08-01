@@ -27,7 +27,7 @@ export class VolumeSlider extends Component {
   render() {
     return (
       <div id="volume-container">        
-        <label htmlFor="volume" >Volume: {this.state.volume} </label>
+        <label htmlFor="volume" ><span>Volume: {this.state.volume}</span></label>
         <input id="volume" type="range" min="0" max="100" step="1" defaultValue="100" onChange={this.handleChange}/>
       </div>
     )
