@@ -16,27 +16,45 @@ class App extends Component {
       on: false
     };
 
+    this.statics = {
+      keyToSound: new Map([
+        ["q","bass drum 1"],
+        ["w","bass drum 2"],
+        ["e","bass drum 3"],
+        ["a","bass drum 4"],
+        ["s","bass drum 5"],
+        ["d","buzzer"],
+        ["z","symbol"],
+        ["x","synth drum"],
+        ["c","zoom out"]
+      ])
+    }
+
     this.handleDrumClick = this.handleDrumClick.bind(this);
     this.handleKeyPress = this.handleKeyPress.bind(this);
     this.handlePowerButtonClick = this.handlePowerButtonClick.bind(this);
-  }
+  }  
 
   componentDidMount() {	   
     window.addEventListener("keyup", this.handleKeyPress);	 
   } 	  
 
- componentWillUnmount() {	   
+  componentWillUnmount() {	   
     window.removeEventListener("keyup", this.handleKeyPress);
   }
 
-  handleKeyPress(e) {
-    const keyEvents = ["q","w","e","a","s","d","z","x","c"];
-    if (e instanceof KeyboardEvent && keyEvents.indexOf(e.key) > -1 && this.state.on) {
+  handleKeyPress(e) {    
+    if (this.isInKeyEventRange(e)) {
       this.setState({
-        displayText: e.key.toUpperCase()
+        displayText: this.statics.keyToSound.get(e.key).toUpperCase() 
       })
       this.playSound(e);
     }    
+  }
+
+  isInKeyEventRange(e) {
+    const keyEvents = ["q","w","e","a","s","d","z","x","c"];
+    return e instanceof KeyboardEvent && keyEvents.indexOf(e.key) > -1 && this.state.on;
   }
 
   getDisplayText() {
@@ -47,7 +65,7 @@ class App extends Component {
     e.preventDefault();
     if (this.state.on) {
       this.setState({
-        displayText: e.target.id
+        displayText: this.statics.keyToSound.get(e.target.id.toLowerCase()).toUpperCase() 
       })
       this.playSound(e);
     }

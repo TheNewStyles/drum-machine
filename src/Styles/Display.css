@@ -1,6 +1,6 @@
 #display {
-  min-height: 100%;
-  min-width: 300px;
+  min-height: 25vh;
+  min-width: 450px;
   background-color: blue;
 
   font-size: 2em;
@@ -15,7 +15,6 @@
 @media (max-width:641px) {
   #display {
     min-width: 100%;
-    min-height: 50%;
     border-radius: 0;
   }
 }

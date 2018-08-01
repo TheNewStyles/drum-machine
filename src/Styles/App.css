@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  background-color: lightcoral;
+  color: white;
 }
 
 #controls {
@@ -9,5 +11,5 @@
   flex-wrap: wrap;
   justify-content: space-evenly;
 
-  height: 25vh;
+  min-height: 25vh;
 }
